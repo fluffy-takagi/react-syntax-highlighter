@@ -31,6 +31,7 @@
     "babel-loader": "^8.0.4",
     "babel-plugin-transform-dynamic-import": "^2.1.0",
     "codecov": "^3.2.0",
+    "cross-env": "^7.0.3",
     "css": "^2.2.1",
     "css-loader": "^3.6.0",
     "eslint": "^7.7.0",
@@ -60,8 +61,8 @@
   "scripts": {
     "dev": "webpack-dev-server --hot --inline",
     "build": "npm run build:cjs && npm run build:esm && webpack",
-    "build:cjs": "BABEL_ENV=cjs babel src --out-dir ./dist/cjs",
-    "build:esm": "BABEL_ENV=esm babel src --out-dir ./dist/esm",
+    "build:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir ./dist/cjs",
+    "build:esm": "cross-env BABEL_ENV=esm babel src --out-dir ./dist/esm",
     "watch": "npm run build:esm -- --watch",
     "build-styles-hljs": "node ./scripts/build-stylesheets-highlightjs.js",
     "build-languages-hljs": "node ./scripts/build-languages-highlightjs.js",
