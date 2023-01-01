@@ -60,7 +60,7 @@
   },
   "scripts": {
     "dev": "webpack-dev-server --hot --inline",
-    "build": "npm run build:cjs && npm run build:esm && webpack",
+    "build": "npm run build:cjs && npm run build:esm && cross-env NODE_OPTIONS='--openssl-legacy-provider' webpack",
     "build:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir ./dist/cjs",
     "build:esm": "cross-env BABEL_ENV=esm babel src --out-dir ./dist/esm",
     "watch": "npm run build:esm -- --watch",
